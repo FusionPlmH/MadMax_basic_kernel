@@ -50,7 +50,7 @@
 
 # mscalers
 /dev/video50              0660   media      graphics
-/dev/m2m1shot_scaler0     0660   cameraserver      m2mscaler
+/dev/m2m1shot_scaler0     0660   cameraserver m2mscaler
 
 /dev/video55              0666   system     graphics
 /dev/fimg2d               0666   system     graphics
@@ -153,6 +153,8 @@
 /sys/devices/system/cpu/cpu*	cpufreq/interactive/input_boost			0660	system	system
 /sys/devices/system/cpu/cpu*	cpufreq/interactive/boostpulse_duration		0660	system	system
 /sys/devices/system/cpu/cpu*	cpufreq/interactive/io_is_busy			0660	system	system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/param_index			0660	system	system
+/sys/devices/system/cpu/cpu*	cpufreq/interactive/mode			0660	system	system
 
 # Vision (VPU, SCORE)
 /dev/vertex0             0660   media      media

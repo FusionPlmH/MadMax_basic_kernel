@@ -86,6 +86,7 @@ on post-fs-data
     chown system radio /sys/class/camera/ois/oisfw
     chown system radio /sys/class/camera/ois/ois_diff
     chown system radio /sys/class/camera/ois/autotest
+    chown system radio /sys/class/camera/ois/autotest_2nd
     chown cameraserver cameraserver /sys/class/camera/ois/ois_exif
     chown system radio /sys/class/camera/secure/iris_camfw
     chown system radio /sys/class/camera/secure/iris_camfw_full
@@ -101,7 +102,13 @@ on post-fs-data
     chown system system /sys/devices/platform/116a0000.pcie0/pcie_sysfs
 
     chmod 0755 /sys/kernel/debug/tracing
-    restorecon /sys/kernel/debug/tracing/trace_marker
+
+#Private Mode
+    mkdir /mnt/shell/privatemode 0700 system system
+    mkdir /storage/Private 0000 system system
+    mkdir /data/privatemode 0770 system system
+    chown system system /data/privatemode
+    restorecon /data/privatemode
 
 on boot
 # SSWAP
@@ -293,7 +300,7 @@ on boot
     chown system radio /sys/class/sec/ccic/lpm_mode
     chown system radio /sys/class/sec/ccic/ccic_control_option
     
-    # Power Meter
+# Power Meter
     chown system system /sys/class/adc_meter/s2mps17_adc/adc_ctrl1
     chown system system /sys/class/adc_meter/s2mps17_adc/adc_en
     chown system system /sys/class/adc_meter/s2mps17_adc/adc_mode
@@ -794,7 +801,7 @@ on fs
 #load ecd firmware
     write /proc/ecd/load_firmware 1
 
- ARGOSD network_throughput
+# ARGOSD network_throughput
     chown system system /dev/network_throughput
 
 # ARGOSD
